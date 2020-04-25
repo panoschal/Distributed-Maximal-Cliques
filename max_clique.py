@@ -1,14 +1,17 @@
 import snap
 # G2 = snap.GenRndGnm(snap.PUNGraph, 10, 10)
 
-G2 = snap.TNGraph.New()
+G2 = snap.TUNGraph.New()
 G2.AddNode(1)
 G2.AddNode(2)
 G2.AddNode(3)
 G2.AddNode(4)
+G2.AddNode(5)
 G2.AddEdge(1,2)
 G2.AddEdge(1,3)
 G2.AddEdge(2,3)
+G2.AddEdge(1,4)
+G2.AddEdge(3,5)
 
 def adj_deep(v):
 	return [G2.GetNI(x) for x in v.GetOutEdges()]
@@ -53,9 +56,10 @@ def worker(pair: tuple):
 	result = LocalMCE(set_of_v, set(x.GetId() for x in adj_gt(v)), set(adj_lt(v)), ADJ_gt_v, ADJ_v)
 	print('worker ended:', result)
 
-def LocalMCE(C, cand, prev, ADJ_gt_v, ADJ_v):
+def LocalMCE(C: set, cand: set, prev: set, ADJ_gt_v: list, ADJ_v: list):
 	if len(cand) == 0 and len(prev) == 0:
 		print('finished', C)
+		return
 	elif len(cand) > 0:
 		u_p = max(cand, key=lambda u_p: len(cand.intersection(ADJ_gt_v[u_p])))
 		U = cand - ADJ_gt_v[u_p]
