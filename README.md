@@ -16,6 +16,7 @@ Python managed to match in some degree the mathematical notation in the paper in
 
 became functions, so that I could run `adj(v)` to get the defined set of adjacent vertices
 - ![mathnotation](assets/math_notation.png) became a generator shorthand expression that outputs tuples `(v, adj(v)) for v in V`
+- The set that contains only `u` is just `{u}`
 - Set operations were really simple: `set1 - set2` is the `set1` without the elements that belong in `set2`
 
 I used the [SNAP package](http://snap.stanford.edu/snappy/index.html) by Stanford University that allows for easy scalability in graph problems. Note that the backend is written in C++ so the Python overhead would be hopefully small.
