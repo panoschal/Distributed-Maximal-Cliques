@@ -10,7 +10,11 @@ I chose Python due to my familiarity with it and the expressiveness of the resul
 
 Python managed to match in some degree the mathematical notation in the paper in a neat way. For example:
 
-- ![definitions](assets/definitions.png) became functions, so that I could run `adj(v)` to get the defined set of adjacent vertices
+- These definitions
+
+![definitions](assets/definitions.png)
+
+became functions, so that I could run `adj(v)` to get the defined set of adjacent vertices
 - ![mathnotation](assets/math_notation.png) became a generator shorthand expression that outputs tuples `(v, adj(v)) for v in V`
 - Set operations were really simple: `set1 - set2` is the `set1` without the elements that belong in `set2`
 
